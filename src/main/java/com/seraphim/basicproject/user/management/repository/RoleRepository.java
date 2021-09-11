@@ -1,6 +1,6 @@
-package com.seraphim.basicproject.role.repostiory;
+package com.seraphim.basicproject.user.management.repository;
 
-import com.seraphim.basicproject.role.model.Role;
+import com.seraphim.basicproject.user.management.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,5 @@
-package com.seraphim.basicproject.user.model;
+package com.seraphim.basicproject.user.management.model;
 
-import com.seraphim.basicproject.role.model.Role;
 import com.sun.istack.NotNull;
 import lombok.Value;
 

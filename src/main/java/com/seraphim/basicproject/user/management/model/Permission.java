@@ -1,4 +1,4 @@
-package com.seraphim.basicproject.permission.model;
+package com.seraphim.basicproject.user.management.model;
 
 import lombok.Value;
 

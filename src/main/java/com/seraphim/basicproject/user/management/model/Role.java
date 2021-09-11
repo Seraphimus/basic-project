@@ -1,6 +1,5 @@
-package com.seraphim.basicproject.role.model;
+package com.seraphim.basicproject.user.management.model;
 
-import com.seraphim.basicproject.permission.model.Permission;
 import lombok.Value;
 
 import javax.persistence.Entity;

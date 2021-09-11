@@ -1,6 +1,6 @@
-package com.seraphim.basicproject.permission.repository;
+package com.seraphim.basicproject.user.management.repository;
 
-import com.seraphim.basicproject.permission.model.Permission;
+import com.seraphim.basicproject.user.management.model.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
