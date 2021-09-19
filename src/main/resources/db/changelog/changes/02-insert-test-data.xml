@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <changeSet id="insert-test-permissions" author="kserafinowicz">
+        <insert tableName="Permission">
+            <column name="codename" value="USER_VIEWING"/>
+            <column name="description" value="Viewing user list"/>
+        </insert>
+        <insert tableName="Permission">
+            <column name="codename" value="USER_EDIT"/>
+            <column name="description" value="Editing users"/>
+        </insert>
+        <insert tableName="Permission">
+            <column name="codename" value="USER_DEACTIVACTION"/>
+            <column name="description" value="Deactivating users"/>
+        </insert>
+        <insert tableName="Permission">
+            <column name="codename" value="PERMISSION_VIEW"/>
+            <column name="description" value="Viewing permission list"/>
+        </insert>
+        <insert tableName="Permission">
+            <column name="codename" value="PERMISSION_EDIT"/>
+            <column name="description" value="Editing permissions"/>
+        </insert>
+        <insert tableName="Permission">
+            <column name="codename" value="ROLE_VIEWER"/>
+            <column name="description" value="Viewing user list"/>
+        </insert>
+        <insert tableName="Permission">
+            <column name="codename" value="ROLE_EDIT"/>
+            <column name="description" value="Editing roles"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-test-roles" author="kserafinowicz">
+        <insert tableName="Role">
+            <column name="uuid" value="997ff08e-20ab-4e23-934b-f492ffde0222" />
+            <column name="name" value="USER_MANAGEMENT" />
+            <column name="description" value="Role for managing users" />
+        </insert>
+        <insert tableName="Role">
+            <column name="uuid" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc" />
+            <column name="name" value="ROLE_AND_PERMISSION_MANAGEMENT" />
+            <column name="description" value="Role for managing users" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="bind-roles-to-permissions" author="kserafinowicz">
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="997ff08e-20ab-4e23-934b-f492ffde0222"/>
+            <column name="permissionCodename" value="USER_VIEWING"/>
+        </insert>
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="997ff08e-20ab-4e23-934b-f492ffde0222"/>
+            <column name="permissionCodename" value="USER_EDIT"/>
+        </insert>
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="997ff08e-20ab-4e23-934b-f492ffde0222"/>
+            <column name="permissionCodename" value="USER_DEACTIVACTION"/>
+        </insert>
+
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc"/>
+            <column name="permissionCodename" value="PERMISSION_VIEW"/>
+        </insert>
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc"/>
+            <column name="permissionCodename" value="PERMISSION_EDIT"/>
+        </insert>
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc"/>
+            <column name="permissionCodename" value="ROLE_VIEWER"/>
+        </insert>
+        <insert tableName="rolePermission">
+            <column name="roleUUID" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc"/>
+            <column name="permissionCodename" value="ROLE_EDIT"/>
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="add-test-users" author="kserafinowicz">
+        <insert tableName="User">
+            <column name="uuid" value="5a5e4b81-88ab-4952-969a-0d8763162dfd" />
+            <column name="username" value="kamil.serafinowicz" />
+            <column name="type" value="Internal" />
+            <column name="password" value="sa" />
+            <column name="created" value="2021-09-19" />
+            <column name="edited" value="2021-09-19" />
+            <column name="active" value="true" />
+        </insert>
+        <insert tableName="User">
+            <column name="uuid" value="f9357c19-3014-4ef8-815e-3863afc7e3dc" />
+            <column name="username" value="adam.testowy" />
+            <column name="type" value="Internal" />
+            <column name="password" value="asd" />
+            <column name="created" value="2021-09-19" />
+            <column name="edited" value="2021-09-19" />
+            <column name="active" value="true" />
+        </insert>
+        <insert tableName="User">
+            <column name="uuid" value="bc1f47aa-5397-46bc-a952-1e637ad7429e" />
+            <column name="username" value="automatic.test" />
+            <column name="type" value="Internal" />
+            <column name="password" value="test" />
+            <column name="created" value="2021-09-19" />
+            <column name="edited" value="2021-09-19" />
+            <column name="active" value="true" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="bind-user-to-roles" author="">
+        <insert tableName="userRole">
+            <column name="userUuid" value="5a5e4b81-88ab-4952-969a-0d8763162dfd" />
+            <column name="roleUuid" value="997ff08e-20ab-4e23-934b-f492ffde0222" />
+        </insert>
+        <insert tableName="userRole">
+            <column name="userUuid" value="5a5e4b81-88ab-4952-969a-0d8763162dfd" />
+            <column name="roleUuid" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc" />
+        </insert>
+        <insert tableName="userRole">
+            <column name="userUuid" value="f9357c19-3014-4ef8-815e-3863afc7e3dc" />
+            <column name="roleUuid" value="997ff08e-20ab-4e23-934b-f492ffde0222" />
+        </insert>
+        <insert tableName="userRole">
+            <column name="userUuid" value="f9357c19-3014-4ef8-815e-3863afc7e3dc" />
+            <column name="roleUuid" value="59b6cc3e-2123-44a0-bb7a-e2806299acdc" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>

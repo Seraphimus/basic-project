@@ -13,8 +13,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService {
 
-    public UserRepository userRepository;
-    public UserMapper userMapper;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     public List<UserDto> getUsers() {
         return userRepository.findAll().stream()

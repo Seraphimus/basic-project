@@ -4,15 +4,17 @@ import com.seraphim.basicproject.user.management.dto.RoleDto;
 import com.seraphim.basicproject.user.management.dto.UserDto;
 import com.seraphim.basicproject.user.management.model.Role;
 import com.seraphim.basicproject.user.management.model.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserMapper {
 
-    RoleMapper roleMapper;
+    private final RoleMapper roleMapper;
 
     public UserDto map(User user) {
         return UserDto.builder()

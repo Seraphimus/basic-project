@@ -4,15 +4,17 @@ import com.seraphim.basicproject.user.management.dto.PermissionDto;
 import com.seraphim.basicproject.user.management.dto.RoleDto;
 import com.seraphim.basicproject.user.management.model.Permission;
 import com.seraphim.basicproject.user.management.model.Role;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class RoleMapper {
 
-    PermissionMapper permissionMapper;
+    private final PermissionMapper permissionMapper;
 
     public RoleDto map(Role role) {
         return RoleDto.builder()

@@ -6,7 +6,7 @@
 
     <changeSet id="user-table" author="kserafinowicz">
         <createTable tableName="user">
-            <column name="id" type="uuid" value="uid.uuid_generate_v4()">
+            <column name="uuid" type="uuid" value="uid.uuid_generate_v4()">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="username" type="varchar2(255)">
@@ -57,11 +57,11 @@
             <column name="roleUUID" type="uuid">
                 <constraints nullable="false"/>
             </column>
-            <column name="permissionUUID" type="uuid">
+            <column name="permissionCodename" type="varchar2(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <addPrimaryKey tableName="rolePermission" columnNames="roleUUID, permissionUUID"
+        <addPrimaryKey tableName="rolePermission" columnNames="roleUUID, permissionCodename"
                        constraintName="ROLE_PERMISSION_PK"/>
     </changeSet>
 </databaseChangeLog>
